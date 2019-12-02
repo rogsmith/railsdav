@@ -184,7 +184,7 @@ module Railsdav
         end
         
         if requested_properties
-          requested_properties[:displayname] = ""
+          requested_properties[:displayname] = nil
         end
         requested_properties ||= response_hash.keys
 
