@@ -182,7 +182,10 @@ module Railsdav
           response_hash[:resourcetype]   = proc { @dav.tag! "D:collection" } # must be block to render <collection></collection> instead of "collection"
           response_hash[:getcontenttype] = nil
         end
-
+        
+        if requested_properties
+          requested_properties[:displayname] = hash.has_key?(:displayname) ? hash[:displayname] : ''
+        end
         requested_properties ||= response_hash.keys
 
         # as a workaround for another bug in Flycode's WebDAV module,
