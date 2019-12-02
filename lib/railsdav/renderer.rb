@@ -184,7 +184,7 @@ module Railsdav
         end
         
         if requested_properties
-          requested_properties[:displayname] = hash.has_key?(:displayname) ? hash[:displayname] : ''
+          requested_properties[:displayname] = ""
         end
         requested_properties ||= response_hash.keys
 
