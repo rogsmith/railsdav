@@ -164,7 +164,8 @@ module Railsdav
         else
           updated_at = Time.now
         end
-
+        puts 'ROGER RAILSDAV'
+        puts hash
         # note: all of these are assumed to be from the DAV:
         # namespace!
         response_hash = {
