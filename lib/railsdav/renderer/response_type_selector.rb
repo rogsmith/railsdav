@@ -30,11 +30,15 @@ module Railsdav
         return unless @request_format == :collection
 
         options = subresources.extract_options!
+        Rails.logger.debug "JAMES SMITH"
+        Rails.logger.debug options
         subresources.each do |resource_url|
           relative_resource_url = resource_url.sub %r(^#{ActionController::Base.relative_url_root}), '' # HACK
           route = Rails.application.routes.recognize_path(relative_resource_url)
-
+  
           if meta = Renderer.webdav_metadata_for_url(route)
+            Rails.logger.debug "JAMES SMITH222"
+            Rails.logger.debug meta
             # show the resource as a collection unless disabled
             if meta[:collection]
               @subresources << Renderer::ResourceDescriptor.new(resource_url, options.merge(:format => :collection))
