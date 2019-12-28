@@ -175,7 +175,9 @@ module Railsdav
           :getlastmodified       => updated_at.rfc2822,
           :getcontentlength      => hash[:size],
           :getcontenttype        => hash[:format].to_s,
-          :displayname           => hash.has_key?(:displayname) ? hash[:displayname] : ''
+          :displayname           => hash.has_key?(:displayname) ? hash[:displayname] : '',
+          :resourceid           => hash.has_key?(:resourceid) ? hash[:resourceid] : '',
+          :resourcetype           => hash.has_key?(:resourcetype) ? hash[:resourcetype] : ''
         }
 
         if resource.collection?
